@@ -1,6 +1,6 @@
 # Machine-Learning---Ilum-R.W.Q.Y-
 
-## Aprendizado de Máquina aplicado na previsão de resultados do Brasileirão
+## Aprendizado de Máquina aplicado à previsão de resultados do Brasileirão
 
 ### Futebol é estatística?
 
