@@ -10,4 +10,5 @@ Esse é um repositório relativo ao desenvolvimento do projeto realizado pelo gr
 
 ### Como fazer a melhor simulação?
 
-![image](https://user-images.githubusercontent.com/107067724/185000116-43dd76e4-e1d0-448b-be63-95d0954a14f5.gif)
+![8qQGym](https://user-images.githubusercontent.com/107067724/185000434-94e58d5a-f494-41c2-bcc8-69aee78a1213.gif)
+
