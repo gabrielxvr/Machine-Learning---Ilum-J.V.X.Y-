@@ -7,6 +7,8 @@
 ### Futebol é estatística?
 Esse é um repositório relativo ao desenvolvimento do projeto realizado pelo grupo J.V.X.Y na disciplina Aprendizado de Máquinas, na Ilum Escola de Ciências. Nele, será estudada a relação de alguns atributos ao resultado de partidas na seria A do Brasileirão, para que, assim, seja possível a previsão desses resultados.
 
+##### 
+
 ![8qQGym](https://user-images.githubusercontent.com/107067724/185000434-94e58d5a-f494-41c2-bcc8-69aee78a1213.gif)
 
 ### Como fazer a melhor simulação?
