@@ -2,7 +2,7 @@
 
 ## Aprendizado de Máquina aplicado à previsão de resultados do Brasileirão
 
-![image|100x100](https://user-images.githubusercontent.com/107067724/184998620-beb7c37b-20d5-4ec9-843a-a624387f682e.png)
+![image|10x10](https://user-images.githubusercontent.com/107067724/184998620-beb7c37b-20d5-4ec9-843a-a624387f682e.png)
 
 ### Futebol é estatística?
 Esse é um repositório relativo ao desenvolvimento do projeto realizado pelo grupo J.V.X.Y na disciplina Aprendizado de Máquinas, na Ilum Escola de Ciências. Nele, será estudada a relação de alguns atributos ao resultado de partidas na seria A do Brasileirão, para que, assim, seja possível a previsão desses resultados.
