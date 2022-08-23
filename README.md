@@ -18,4 +18,6 @@ Para realizar simulações a respeito dos jogos foram usados alguns atributos, d
 O tratamento de dados foi realizado usando o Python, por meio do JupyterLab. Além disso, foram usadas algumas bibliotecas, como o pandas, o matplotlib e o seaborn. O código feito está disponível nesse repositório no documento "Código". Para utilizá-los é necessário fazer o download da tabela "dados brasileirao.xlsx".
 
 ### Alguns resultados obtidos de forma exploratória
-Em um primeiro momento, é interessante analisar algumas relações de dependência envolvendo as partidas de futebol.
+Em um primeiro momento, é interessante analisar algumas relações de dependência envolvendo as partidas de futebol.Para isso, faremos uso de gráficos, relacionando algum atributo desejado à média de gols.
+
+>>>>>>> 87b158a225957c200bb1244c3d265d3b964351da
