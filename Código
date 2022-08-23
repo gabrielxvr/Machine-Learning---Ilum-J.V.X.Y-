@@ -7,7 +7,7 @@ df = pd.read_excel("dados brasileirao.xlsx")
 df1 = df.drop(["escanteios_man", "escanteios_vis", "publico_max", "faltas_man", "faltas_vis", "chutes_bola_parada_man", "chutes_bola_parada_vis", "defesas_man", "defesas_vis", "impedimentos_man", "impedimentos_vis", "chutes_man", "chutes_vis", "chutes_fora_man", "chutes_fora_vis", "gols_1_tempo_man", "gols_1_tempo_vis"], axis=1)
 
 # Nesta linha, foram tiradas todas as linhas que possuiam dados faltantes, visto que os anos iniciais não tinham todos os dados da tabela preenchidos.
-dfbr = df1.dropna(axis = 0)
+df2 = df1.dropna(axis = 0)
 
 # Nesta linha, são redefinidos os índices para facilitar o trabalho com os dados e foi feito após retirar os dados que não íamos precisar.
 df3 = df2.reset_index()
@@ -143,10 +143,26 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Nesta linha, são plotados os gráficos de média de gols em cada faixa de público
-dfpg.plot("publico_medio", "gols_man", kind = "scatter")
+
+fig = plt.figure()
+ax1 = fig.add_subplot(111)
+dfpg.plot('publico_medio','gols_man',legend=True, ax=ax1, kind = 'scatter', color = 'red')
+plt.title('Gols e Público Médio')
+plt.xlabel('Público Médio')
+plt.ylabel('Gols da Equipe Mandante')
+#plt.savefig('Gols e Público.png', dpi=100, format='png', facecolor='white')
+plt.show()
 
 # Nesta linha, são plotados os gráficos de média de gols do mandante em cada faixa de valor do mandante
-dfvg.plot("valor_medio", "gols_man", kind = "scatter")
+
+fig1 = plt.figure()
+ax2 = fig1.add_subplot(111)
+dfvg.plot('valor_medio','gols_man',legend=True, ax=ax2, kind = 'scatter', color = 'blue')
+plt.title('Gols e Valor do Elenco')
+plt.xlabel('Valor Médio do Elenco Mandante')
+plt.ylabel('Gols da Equipe Mandante')
+#plt.savefig('Gols e Valor do Elenco.png', dpi=100, format='png', facecolor='white')
+plt.show()
 
 # Nesta linha, são plotados os gráficos de média de gols do visitante em cada faixa de valor do mandante
 dfvgv.plot("valor_medio_man", "gols_vis", kind = "scatter")
