@@ -13,3 +13,6 @@ Esse é um repositório relativo ao desenvolvimento do projeto realizado pelo gr
 
 ### Como fazer a melhor simulação?
 Para realizar simulações a respeito dos jogos foram usados alguns atributos, disponíveis nos bancos de dados do brasileirão. Informações como a colocação de cada time no campeonato ou o número de torcedores presentes no estádio podem ser indicativos de um resultado positivo ou negativo. Selecionar dados significativos é muito importante e fez parte do pre-tratamento realizado.
+
+### Tratamento de dados
+O tratamento de dados foi realizado usando o Python, por meio do JupyterLab. Além disso, foram usadas algumas bibliotecas, como o pandas, o matplotlib e o seaborn. O código feito está disponível nesse repositório no documento "Código".

@@ -9,7 +9,7 @@ df1 = df.drop(["escanteios_man", "escanteios_vis", "publico_max", "faltas_man", 
 # Nesta linha, foram tiradas todas as linhas que possuiam dados faltantes
 dfbr = df1.dropna(axis = 0)
 
-# O código a seguir f
+# O código a seguir cria um dataframe contendo as faixas de público e as respectivas médias de gols associadas a elas
 pub_max = dfbr["publico"].max()
 pub_max_norm = pub_max/25
 publico_gols = ["publico", "gols_man", "gols_vis"]
@@ -33,6 +33,7 @@ dic_publico_gols = {
 
 dfpg = pd.DataFrame.from_dict(dic_publico_gols)
 
+# O código a seguir cria um dataframe contendo as faixas de valor do clube mandante e as respectivas médias de gols associadas a elas
 valor_max = dfbr["valor_equipe_titular_man"].max()
 valor_max_norm = valor_max/25
 valor_gols = ["valor_equipe_titular_man", "gols_man", "gols_vis"]
@@ -55,3 +56,12 @@ dic_valor_gols = {
 }
 
 dfvg = pd.DataFrame.from_dict(dic_valor_gols)
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Nesta linha, são plotados os gráficos de média de gols em cada faixa de público
+dfpg.plot("publico_medio", "gols_man", kind = "scatter")
+
+# Nesta linha, são plotados os gráficos de média de gols em cada faixa de valor do mandante
+dfvg.plot("valor_medio", "gols_man", kind = "scatter")
