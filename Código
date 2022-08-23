@@ -35,13 +35,13 @@ dfpg = pd.DataFrame.from_dict(dic_publico_gols)
 
 # O código a seguir cria um dataframe contendo as faixas de valor do clube mandante e as respectivas médias de gols do mandante associadas a elas
 valor_max = dfbr["valor_equipe_titular_man"].max()
-valor_max_norm = valor_max/25
+valor_max_norm = valor_max/10
 valor_gols = ["valor_equipe_titular_man", "gols_man", "gols_vis"]
 dfbr_valor_gols = dfbr[valor_gols]
 lista_medias_valor = []
 lista_medias_gols_valor = []
 
-for i in range(25):
+for i in range(10):
     n_menor = i*valor_max_norm
     n_maior = (i+1)*valor_max_norm
     dfbr_valor_gols_sep = dfbr_valor_gols.loc[(dfbr_valor_gols["valor_equipe_titular_man"] >= n_menor) & (dfbr_valor_gols["valor_equipe_titular_man"] < n_maior)]
@@ -60,7 +60,7 @@ dfvg = pd.DataFrame.from_dict(dic_valor_gols)
 # O código a seguir cria um dataframe contendo as faixas de valor do clube mandante e as respectivas médias de gols do time visitante associadas a elas
 valor_max = dfbr["valor_equipe_titular_man"].max()
 
-valor_max_norm = valor_max/25
+valor_max_norm = valor_max/10
 
 valor_gols = ["valor_equipe_titular_man", "gols_man", "gols_vis"]
 
@@ -70,7 +70,7 @@ lista_medias_valor = []
 
 lista_medias_gols_valor_vis = []
 
-for i in range(25):
+for i in range(10):
     n_menor = i*valor_max_norm
     n_maior = (i+1)*valor_max_norm
     
