@@ -1,19 +1,19 @@
 import pandas as pd
 
 # Código para ler o arquivo em xls e retorná-lo em dataframe
-df = pd.read_excel("dados brasileirao.xlsx") 
+dfbr = pd.read_excel("dados brasileirao.xlsx") 
 
 # Nesta linha, foram retiradas todas as colunas que possuiam dados relativos à estáticas após o começo do jogo. Os Dados após o jogo começar não nos ajudam a prever os nossos resultados, pois são muito específicos de cada jogo. Então vamos analisar o principal: número de gols
-df1 = df.drop(["escanteios_man", "escanteios_vis", "publico_max", "faltas_man", "faltas_vis", "chutes_bola_parada_man", "chutes_bola_parada_vis", "defesas_man", "defesas_vis", "impedimentos_man", "impedimentos_vis", "chutes_man", "chutes_vis", "chutes_fora_man", "chutes_fora_vis", "gols_1_tempo_man", "gols_1_tempo_vis"], axis=1)
+dfbr = dfbr.drop(["escanteios_man", "escanteios_vis", "publico_max", "faltas_man", "faltas_vis", "chutes_bola_parada_man", "chutes_bola_parada_vis", "defesas_man", "defesas_vis", "impedimentos_man", "impedimentos_vis", "chutes_man", "chutes_vis", "chutes_fora_man", "chutes_fora_vis", "gols_1_tempo_man", "gols_1_tempo_vis"], axis=1)
 
 # Nesta linha, foram tiradas todas as linhas que possuiam dados faltantes, visto que os anos iniciais não tinham todos os dados da tabela preenchidos.
-df2 = df1.dropna(axis = 0)
+dfbr = dfbr.dropna(axis = 0)
 
 # Nesta linha, são redefinidos os índices para facilitar o trabalho com os dados e foi feito após retirar os dados que não íamos precisar.
-df3 = df2.reset_index()
+dfbr = dfbr.reset_index()
 
 # Nesta parte, foram retiradas as colunas "index" e "Unnamed: 0" para facilitar o trabalho com os dados (Eram colunas com repetição de índices antigos)
-dfbr = df3.drop(columns=["index", "Unnamed: 0"])
+dfbr = dfbr.drop(columns=["index", "Unnamed: 0"])
 
 # O código a seguir cria um dataframe contendo as faixas de público e as respectivas médias de gols associadas a elas
 pub_max = dfbr["publico"].max()
