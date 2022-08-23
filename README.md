@@ -16,3 +16,6 @@ Para realizar simulações a respeito dos jogos foram usados alguns atributos, d
 
 ### Tratamento de dados
 O tratamento de dados foi realizado usando o Python, por meio do JupyterLab. Além disso, foram usadas algumas bibliotecas, como o pandas, o matplotlib e o seaborn. O código feito está disponível nesse repositório no documento "Código".
+
+### Alguns resultados obtidos de forma exploratória
+Em um primeiro momento, é interessante analisar algumas relações de dependência envolvendo as partidas de futebol.
