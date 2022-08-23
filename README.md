@@ -20,4 +20,5 @@ O tratamento de dados foi realizado usando o Python, por meio do JupyterLab. Al�
 ### Alguns resultados obtidos de forma exploratória
 Em um primeiro momento, é interessante analisar algumas relações de dependência envolvendo as partidas de futebol.Para isso, faremos uso de gráficos, relacionando algum atributo desejado à média de gols.
 
->>>>>>> 87b158a225957c200bb1244c3d265d3b964351da
+<img src= "Gols e Público Médio.png" style="width:320px;height:200px;">
+<img src= "Gols e Valor do Elenco.png" style="width:320px;height:200px;">
