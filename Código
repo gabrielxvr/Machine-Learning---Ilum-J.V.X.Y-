@@ -165,19 +165,68 @@ plt.ylabel('Gols da Equipe Mandante')
 plt.show()
 
 # Nesta linha, são plotados os gráficos de média de gols do visitante em cada faixa de valor do mandante
-dfvgv.plot("valor_medio_man", "gols_vis", kind = "scatter")
+
+fig2 = plt.figure()
+ax3 = fig2.add_subplot(111)
+dfvgv.plot('valor_medio_man','gols_vis',legend=True, ax=ax3, kind = 'scatter', color = 'purple')
+plt.title('Gols do Visitante e Valor Médio do Elenco Mandante')
+plt.xlabel('Valor Médio do Elenco Mandante')
+plt.ylabel('Gols da Equipe Visitante')
+#plt.savefig('Gols do Visitante e Valor do Elenco Mandante.png', dpi=100, format='png', facecolor='white')
+plt.show()
 
 # Nesta linha, são plotados os gráficos de média de gols do mandante em cada colocação do mandante
-dfcg.plot("colocacao_man", "gols_man", kind = "scatter")
+
+fig3 = plt.figure()
+ax4 = fig3.add_subplot(111)
+dfcg.plot('colocacao_man','gols_man',legend=True, ax=ax4, kind = 'scatter', color = 'orange')
+plt.title('Gols e Colocação do Mandante')
+plt.xlabel('Colocação do Mandante')
+plt.ylabel('Gols da Equipe Mandante')
+#plt.savefig('Gols e Colocação do Mandante.png', dpi=100, format='png', facecolor='white')
+plt.show()
 
 # Nesta linha, são plotados os gráficos de média de gols do visitante em cada colocação do mandante
-dfcgv.plot("colocacao_man", "gols_vis", kind = "scatter")
+
+fig4 = plt.figure()
+ax5 = fig4.add_subplot(111)
+dfcgv.plot('colocacao_man','gols_vis',legend=True, ax=ax5, kind = 'scatter', color = 'pink')
+plt.title('Gols do Visitante e Colocação do Mandante')
+plt.xlabel('Colocação do Mandante')
+plt.ylabel('Gols da Equipe Visitante')
+#plt.savefig('Gols do Visitante e Colocação do Mandante.png', dpi=100, format='png', facecolor='white')
+plt.show()
 
 # Nesta linha, foi plotado um histograma da quantidade de público nos jogos
-dfbr["publico"].plot(kind = 'hist')
+
+fig5 = plt.figure()
+ax6 = fig5.add_subplot(111)
+dfbr['publico'].plot(legend=True, ax=ax6, kind = 'hist', color = 'red')
+plt.title('Frequência de Público')
+plt.xlabel('Público')
+plt.ylabel('Frequência')
+#plt.savefig('Frequência de Público.png', dpi=100, format='png', facecolor='white')
+plt.show()
 
 # Nesta linha, foi plotado um histograma do valor da equipe titular do mandante
-dfbr["valor_equipe_titular_man"].plot(kind = 'hist')
+
+fig6 = plt.figure()
+ax7 = fig6.add_subplot(111)
+dfbr["valor_equipe_titular_man"].plot(legend=True, ax=ax7, kind = 'hist', color = 'blue')
+plt.title('Valor da Equipe Mandante')
+plt.xlabel('Valor da Equipe Mandante')
+plt.ylabel('Frequência')
+#plt.savefig('Frequência de Valor da Equipe Mandante.png', dpi=100, format='png', facecolor='white')
+plt.show()
+
 
 # Nesta linha, foi plotado um histograma da colocação da equipe mandante.
-dfbr["colocacao_man"].plot(kind = 'hist')
+
+fig7 = plt.figure()
+ax8 = fig7.add_subplot(111)
+dfbr["colocacao_man"].plot(legend=True, ax=ax8, kind = 'hist', color = 'yellow')
+plt.title('Colocação da Equipe Mandante')
+plt.xlabel('Colocação da Equipe Mandante')
+plt.ylabel('Frequência')
+#plt.savefig('Frequência da Colocação.png', dpi=100, format='png', facecolor='white')
+plt.show()
