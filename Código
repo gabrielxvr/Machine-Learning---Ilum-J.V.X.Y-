@@ -1,1 +1,57 @@
-............
+import pandas as pd
+
+# Código para ler o arquivo em xls e retorná-lo em dataframe
+df = pd.read_excel("dados brasileirao.xlsx") 
+
+# Nesta linha, foram retiradas todas as colunas que possuiam dados relativos à estáticas após o começo do jogo
+df1 = df.drop(["escanteios_man", "escanteios_vis", "publico_max", "faltas_man", "faltas_vis", "chutes_bola_parada_man", "chutes_bola_parada_vis", "defesas_man", "defesas_vis", "impedimentos_man", "impedimentos_vis", "chutes_man", "chutes_vis", "chutes_fora_man", "chutes_fora_vis", "gols_1_tempo_man", "gols_1_tempo_vis"], axis=1)
+
+# Nesta linha, foram tiradas todas as linhas que possuiam dados faltantes
+dfbr = df1.dropna(axis = 0)
+
+# O código a seguir f
+pub_max = dfbr["publico"].max()
+pub_max_norm = pub_max/25
+publico_gols = ["publico", "gols_man", "gols_vis"]
+dfbr_publico_gols = dfbr[publico_gols]
+lista_medias_publico = []
+lista_medias_gols_publico = []
+
+for i in range(25):
+    n_menor = i*pub_max_norm
+    n_maior = (i+1)*pub_max_norm
+    dfbr_publico_gols_sep = dfbr_publico_gols.loc[(dfbr_publico_gols["publico"] >= n_menor) & (dfbr_publico_gols["publico"] < n_maior)]
+    media_gols_publico_sep = dfbr_publico_gols_sep["gols_man"].mean()
+    media_publico = (n_menor + n_maior)/2
+    lista_medias_publico.append(media_publico)
+    lista_medias_gols_publico.append(media_gols_publico_sep)
+    
+dic_publico_gols = {
+    "publico_medio": lista_medias_publico,
+    "gols_man": lista_medias_gols_publico,
+}
+
+dfpg = pd.DataFrame.from_dict(dic_publico_gols)
+
+valor_max = dfbr["valor_equipe_titular_man"].max()
+valor_max_norm = valor_max/25
+valor_gols = ["valor_equipe_titular_man", "gols_man", "gols_vis"]
+dfbr_valor_gols = dfbr[valor_gols]
+lista_medias_valor = []
+lista_medias_gols_valor = []
+
+for i in range(25):
+    n_menor = i*valor_max_norm
+    n_maior = (i+1)*valor_max_norm
+    dfbr_valor_gols_sep = dfbr_valor_gols.loc[(dfbr_valor_gols["valor_equipe_titular_man"] >= n_menor) & (dfbr_valor_gols["valor_equipe_titular_man"] < n_maior)]
+    media_gols_valor_sep = dfbr_valor_gols_sep["gols_man"].mean()
+    media_valor = (n_menor + n_maior)/2
+    lista_medias_valor.append(media_valor)
+    lista_medias_gols_valor.append(media_gols_valor_sep)
+    
+dic_valor_gols = {
+    "valor_medio": lista_medias_valor,
+    "gols_man": lista_medias_gols_valor,
+}
+
+dfvg = pd.DataFrame.from_dict(dic_valor_gols)
