@@ -154,6 +154,6 @@ dfvgv.plot("valor_medio_man", "gols_vis", kind = "scatter")
 # Nesta linha, são plotados os gráficos de média de gols do mandante em cada colocação do mandante
 dfcg.plot("colocacao_man", "gols_man", kind = "scatter")
 
-# Nesta linha, são plotados os gráficos de média de gols do mandante em cada colocação do mandante
+# Nesta linha, são plotados os gráficos de média de gols do visitante em cada colocação do mandante
 dfcgv.plot("colocacao_man", "gols_vis", kind = "scatter")
 
