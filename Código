@@ -33,7 +33,7 @@ dic_publico_gols = {
 
 dfpg = pd.DataFrame.from_dict(dic_publico_gols)
 
-# O código a seguir cria um dataframe contendo as faixas de valor do clube mandante e as respectivas médias de gols associadas a elas
+# O código a seguir cria um dataframe contendo as faixas de valor do clube mandante e as respectivas médias de gols do mandante associadas a elas
 valor_max = dfbr["valor_equipe_titular_man"].max()
 valor_max_norm = valor_max/25
 valor_gols = ["valor_equipe_titular_man", "gols_man", "gols_vis"]
@@ -56,6 +56,36 @@ dic_valor_gols = {
 }
 
 dfvg = pd.DataFrame.from_dict(dic_valor_gols)
+
+# O código a seguir cria um dataframe contendo as faixas de valor do clube mandante e as respectivas médias de gols do time visitante associadas a elas
+valor_max = dfbr["valor_equipe_titular_man"].max()
+
+valor_max_norm = valor_max/25
+
+valor_gols = ["valor_equipe_titular_man", "gols_man", "gols_vis"]
+
+dfbr_valor_gols = dfbr[valor_gols]
+
+lista_medias_valor = []
+
+lista_medias_gols_valor_vis = []
+
+for i in range(25):
+    n_menor = i*valor_max_norm
+    n_maior = (i+1)*valor_max_norm
+    
+    dfbr_valor_gols_sep = dfbr_valor_gols.loc[(dfbr_valor_gols["valor_equipe_titular_man"] >= n_menor) & (dfbr_valor_gols["valor_equipe_titular_man"] < n_maior)]
+    media_gols_valor_sep = dfbr_valor_gols_sep["gols_vis"].mean()
+    media_valor = (n_menor + n_maior)/2
+    lista_medias_valor.append(media_valor)
+    lista_medias_gols_valor_vis.append(media_gols_valor_sep)
+    
+dic_valor_gols_vis = {
+    "valor_medio_man": lista_medias_valor,
+    "gols_vis": lista_medias_gols_valor_vis,
+}
+
+dfvgv = pd.DataFrame.from_dict(dic_valor_gols_vis)
 
 import matplotlib.pyplot as plt
 import seaborn as sns
