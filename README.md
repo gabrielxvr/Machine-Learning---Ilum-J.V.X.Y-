@@ -22,3 +22,9 @@ Em um primeiro momento, é interessante analisar algumas relações de dependên
 
 <img src= "Gols e Público Médio.png" style="width:320px;height:200px;">
 <img src= "Gols e Valor do Elenco.png" style="width:320px;height:200px;">
+<img src= "Gols e Colocação do Mandante.png" style="width:320px;height:200px;">
+<img src= "Gols do Visitante e Valor do Elenco Mandante.png" style="width:320px;height:200px;">
+<img src= "Gols do Visitante e Colocação do Mandante.png" style="width:320px;height:200px;">
+<img src= "Frequência de Valor da Equipe Mandante.png" style="width:320px;height:200px;">
+<img src= "Frequência de Público.png" style="width:320px;height:200px;">
+<img src= "Frequência da Colocação.png" style="width:320px;height:200px;">
