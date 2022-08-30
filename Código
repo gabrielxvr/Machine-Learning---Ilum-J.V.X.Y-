@@ -219,7 +219,6 @@ plt.ylabel('Frequência')
 #plt.savefig('Frequência de Valor da Equipe Mandante.png', dpi=100, format='png', facecolor='white')
 plt.show()
 
-
 # Nesta linha, foi plotado um histograma da colocação da equipe mandante.
 
 fig7 = plt.figure()
@@ -230,3 +229,108 @@ plt.xlabel('Colocação da Equipe Mandante')
 plt.ylabel('Frequência')
 #plt.savefig('Frequência da Colocação.png', dpi=100, format='png', facecolor='white')
 plt.show()
+
+# Divisão dos dados do dataset em treino e teste
+
+from sklearn.model_selection import train_test_split # Divisão feita usando a função train_test_split
+
+TAMANHO_TESTE = 0.2 # Porcentagem destinada do dataset ao grupo de teste
+SEMENTE_ALEATORIA = 612210 # Definição de uma seed para evitar mudança desses grupos
+
+# Escolha dos índices e seleção feita pela função
+indices = dfbr.index
+indices_treino, indices_teste = train_test_split(
+    indices, test_size=TAMANHO_TESTE, random_state=SEMENTE_ALEATORIA
+)
+
+# Atribuição dos índices escolhidos aos dados
+dfbr_treino = dfbr.loc[indices_treino].sort_index()
+dfbr_teste = dfbr.loc[indices_teste].sort_index()
+
+# Aqui são escolhidos os atributos do dataset e é definido o target 
+
+FEATURES = ["valor_equipe_titular_man","publico","idade_media_titular_man","colocacao_man","valor_equipe_titular_vis","idade_media_titular_vis","colocacao_vis","gols_vis"]
+TARGET = ["gols_man"]
+
+# Divide os dados para se adequarem aos modelos
+
+X_treino = dfbr_treino.reindex(FEATURES, axis=1).values
+y_treino = dfbr_treino.reindex(TARGET, axis=1).values
+X_teste = dfbr_teste.reindex(FEATURES, axis=1).values
+y_teste = dfbr_teste.reindex(TARGET, axis=1).values
+
+from sklearn.dummy import DummyRegressor
+from sklearn.metrics import mean_squared_error
+
+# Cria um modelo baseline para termos uma base de comparação com outros modelos
+modelo_baseline = DummyRegressor()
+
+# Treina o modelo de acordo com os dados escolhidos antes
+modelo_baseline.fit(X_treino, y_treino)
+
+# Realiza uma previsão usando o modelo treinado
+previsao_baseline = modelo_baseline.predict(X_teste)
+print(f"O time mandante faria {previsao_baseline[0]} gols")
+
+# Verificando o erro do modelo usando o RMSE (root mean squared error)
+y_verdadeiro = y_teste
+y_previsao_baseline = modelo_baseline.predict(X_teste)
+
+RMSE = mean_squared_error(y_verdadeiro, y_previsao_baseline, squared=False)
+
+print(f"O RMSE do modelo baseline foi de {RMSE} gols.")
+
+from sklearn.linear_model import LinearRegression
+
+# Cria um modelo linear
+modelo_linear = LinearRegression()
+
+# Treina esse modelo 
+modelo_linear.fit(X_treino, y_treino)
+
+# Realiza uma previsão usando o modelo treinado
+previsao_linear = modelo_linear.predict(X_teste)
+print(previsao_linear[0]) # Foi escolhida apenas uma linha para melhorar a visualização
+
+# Verificando o erro do modelo usando o RMSE (root mean squared error)
+
+y_verdadeiro = y_teste
+y_previsao_linear = modelo_linear.predict(X_teste)
+
+RMSE = mean_squared_error(y_verdadeiro, y_previsao_linear, squared=False)
+
+print(f"O RMSE do modelo linear foi de {RMSE} gols.")
+
+from sklearn.preprocessing import MinMaxScaler
+
+# Usa um função normalizadora sobre os dados
+
+normalizador_x = MinMaxScaler()
+normalizador_y = MinMaxScaler()
+
+normalizador_x.fit(X_treino)
+normalizador_y.fit(y_treino)
+
+# Cria um modelo linear
+modelo_linear_norm = LinearRegression()
+
+# Treina esse modelo
+modelo_linear_norm.fit(
+    normalizador_x.transform(X_treino),
+    normalizador_y.transform(y_treino),
+)
+
+# Realiza uma previsão usando o modelo linear normalizado treinado
+previsao = modelo_linear_norm.predict(normalizador_x.transform(X_treino))
+previsao = normalizador_y.inverse_transform(previsao)
+print(previsao)
+
+# Verificando o erro do modelo usando o RMSE (root mean squared error)
+
+y_verdadeiro = y_teste
+y_previsao = modelo_linear_norm.predict(normalizador_x.transform(X_teste))
+y_previsao = normalizador_y.inverse_transform(y_previsao)
+
+RMSE = mean_squared_error(y_verdadeiro, y_previsao, squared=False)
+
+print(f"O RMSE do modelo linear foi de {RMSE} gols.")
