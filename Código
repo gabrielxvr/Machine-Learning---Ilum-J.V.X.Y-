@@ -31,7 +31,7 @@ for i in range(25):
     media_publico = (n_menor + n_maior)/2
     lista_medias_publico.append(media_publico)
     lista_medias_gols_publico.append(media_gols_publico_sep)
-    
+
 dic_publico_gols = {
     "publico_medio": lista_medias_publico,
     "gols_man": lista_medias_gols_publico,
@@ -218,6 +218,7 @@ plt.xlabel('Valor da Equipe Mandante')
 plt.ylabel('Frequência')
 #plt.savefig('Frequência de Valor da Equipe Mandante.png', dpi=100, format='png', facecolor='white')
 plt.show()
+
 
 # Nesta linha, foi plotado um histograma da colocação da equipe mandante.
 
