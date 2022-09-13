@@ -28,3 +28,7 @@ Em um primeiro momento, é interessante analisar algumas relações de dependên
 <img src= "Frequência de Valor da Equipe Mandante.png" style="width:320px;height:200px;">
 <img src= "Frequência de Público.png" style="width:320px;height:200px;">
 <img src= "Frequência da Colocação.png" style="width:320px;height:200px;">
+
+## Árvore de decisão criada no Bloco 2
+
+<img src= "árvorefut.png" style="width:600px;height:400px;">
