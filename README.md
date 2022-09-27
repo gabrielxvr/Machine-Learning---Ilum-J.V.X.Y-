@@ -36,8 +36,42 @@ De forma semelhante ao obtido anteriormente, a colocação do time mandante pare
 As frequências de cada atributo analisado pela faixa desses atributos nos permitem compreender algumas dispersões nos gráficos anteriores. Por exemplo, a quantidade de dados contendo uma quantidade de torcedores no estádio maior que 60 mil é muito pequena, isso permite compreender a grande dispersão do primeiro gráfico quando a quantidade de torcedores é maior que 60 mil.
 
 ## Modelagem
-Após a análise exploratória dos dados indicar possíveis correlações dos atributos análisados com o resultado da partida, foi necessário, então, ...
+Após a análise exploratória dos dados indicar possíveis correlações dos atributos análisados com o resultado da partida, foi possível, então, criar alguns modelos que possibilitaram a previsão de resultados. Sendo que, estes, serão apresentados a seguir.
 
-## Árvore de decisão criada no Bloco 2
+## Divisão do Database em Treino e Teste
+A divisão do Database em treino e teste é um passo fundamental para qualquer modelagem e consiste em, basicamente, separar a quantidade de objetos que serão utilizados para treinar o código e aqueles que servirão de medida para saber o quão boa está a previsão. No nosso caso, por exemplo, a primeira modelagem foi realizada com 90% dos objetos utilizados no treino e 10% utilizados no teste. No entanto, após o desenvolvimento do código, em um ponto, notou-se mais vantajoso utilizar a proporção de 70% para treino e 30% para teste.
+
+## Modelo Baseline
+O modelo baseline serve de padrão para descobrir o quão eficiente estão os outros modelos. Nesse caso, foi utilizado o DummyRegressor, método esse que calcula a média e prevê os valores a partir apenas da média. Os resultados obtidos, para a média de gols do mandante foi de 1.5049 gols, enquanto o erro médio foi de 1.1665 gols.
+
+## Regressão Linear
+Diferentemente do DummyRegressor, na regressão linear, a previsão é baseada em um modelo linear, o qual pode trabalhar com a proporcionalidade em relação a algumas features. Condição essa que permite uma melhor predição. Nesse caso, o erro médio registrado foi de 1.1010 gols.
+
+## k-vizinhos
+Ainda na regressão linear, é possível trabalhar com um hiperparâmetro, chamado k-vizinhos. Esse hiperparâmetro faz com que a predição seja baseada de maneira mais contundente pelos k-vizinhos do alvo, sendo que k será um número natural determinado anteriormente ao treino.
+
+## Árvore de Decisões
+A árvore de decisões é um método de previsão que permite constituir uma série de perguntas e passos a fim de predizer a condição final do alvo. Para isso, o código treina uma série de perguntas e consequências para cada resposta, sendo que os testes serão submetidos a esse processo. Para o alvo de gols do mandante, o erro médio obtido, sem a inclusão de hiperparâmetros, foi de 1.6809 gols.
+
+## Árvore de Decisões com Hiperparâmetros
+Alguns hiperparâmetros, como a quantidade de folhas, podem ser adicionados ao modelo de árvore de decisões com o objetivo de diminuir o erro médio. Objetivo esse bem sucedido, pois, ao definirmos o número de folhas como 6 e o número de profundidade como 3 nós obtivemos o erro médio de 1.121 gols.
 
 <img src= "árvorefut.png" style="width:600px;height:400px;">
+
+## Floresta Aleatória
+Na verdade é a ideia de floresta aleatória é bem parecidada com a de árvore de decisões, mas ampliada. Nesse caso, o erro médio obtido foi de  1.1285 gols. No entanto, após a inserção de alguns hiperparâmtros, o erro médio passou para 1.11 gols.
+
+## Algumas consideração
+Até o determinado momento, considerando o alvo numérico "gols do mandante" a melhor previsão foi realizada a partir da Regressão Linear.
+
+## Classificação
+O método de classificação é uma forma de previsão baseada no agrupamento de resultados semelhantes, a fim de estabelecer esse mesmo resultado para os valores de teste. Acontece que, a classificação é utilizada, em especial, para targets não numéricos. Portanto, surgiu a hipótese de trabalhar, no nosso problema, não mais com a previsão do número de gols do mandante, mas sim com o resultado do mandante, sendo que as três opções seriam vitória, derrota ou empate. Para tal, nós fizemos um código que criou uma coluna de resultado do mandante a partir do número de gols marcados e sofridos, para que, dessa forma, fosse possível o treinamento e o sequente teste.
+
+## k-vizinhos
+A ideia de k-vizinhos, quando utilizada na classificação ocorre de maneira parecida. Sendo que, nesse caso, os vizinhos interfeririam no agrupamento realizado.
+
+## Arvore de Decisões com Hiperparâmetros
+A arvore de decisões também possui a mesma dinâmica de perguntas e argumentos lógicos para determinar a previsão, sendo que, somado aos hiperparâmetros determinados, foi possível obter, finalmente, um accuracy de mais de 50%.
+
+## Algumas conclusões
+A partir dos resultados obtidos, mencionados anteriormente, foi possível obter, no modo de classificação, um accuracy, ou precisão, de mais de 50%. Isso significa que, em média, a cada dois jogos, o modelo é capaz de responder corretamente um dos resultados, sendo que as opções possíveis são vitória, derrota ou empate do mandante. Isso faz com que o modelo possua a capacidade de prever relativamente bem alguns resultados, especialmente quando pensamos em um número grande de jogos. Portanto, podemos fazer a seguinte constatação lógica: Se em um site de apostas on-line o resultado obtido pelo modelo estiver correspondendo a um multiplicador maior que 2, ou seja, a cada 1 real investido o valor de retorno caso se acerte o resultado é maior que 2 reais (algo bastante comum), então, torna-se vantajoso investir nessa partida, pois, como constatado, a chance de acerto do código é mais de 50%, isso faz com que, se pensarmos em centenas ou milhares de apostas em que o resultado apontado pelo modelo possui um multiplicador maior que 2 é, estatisticamente, bem provável o lucro.
