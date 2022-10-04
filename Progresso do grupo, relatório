@@ -1,0 +1,38 @@
+Progresso do grupo, mediante o relatório de cada integrante
+
+Bloco 2- Relatório
+Grupo: J.V.X.Y
+Dia: 30/08/2022
+
+Eduarda: Como líder, dividi e deleguei as tarefas do grupo, trouxe a lista de tarefa do bloco 2 impressa para fazermos anotações e facilitar a visualização de metas já alcançadas em cada aula. No começo da aula terminei de plotar os gráficos do bloco 1 no README e depois fui analisar os notebooks que foram passados nessa aula, com foco no que falava sobre a parte 2 da lista de tarefas, o de k-vizinhos mais próximos e hiperparâmetros. Além disso, tivemos discussão em grupo para entendermos como faríamos a prática, o que seria o nosso target e analisei os resultados do código com o João.
+Gabriel: Eu especifiquei algumas partes do código apresentado na última aula, tornando mais fácil a compreensão do código no GitHub. Além disso, eu adicionei, ao código, mais três gráficos, os quais contribuem para a análise exploratória dos dados. Sendo eles o número de gols do mandante por faixa de idade média do time titular do mandante, o número de gols do mandante pelo ano da competição. Esses eram os atributos numéricos restantes para a análise exploratória e os gráficos obtidos podem auxiliar na apresentação do projeto e de suas características.
+João: Dividi o dataset em grupos de teste e treino além de realizar a baseline, regressão linear e regressão com normalização com as features e o target escolhido. Vale notar que todas as opções são facilmente alteráveis e não entendi o funcionamento por completo das funções utilizadas paras as regressões.
+Ygor: Identifiquei os hiperparâmetros desse algoritmo, aprendi que BaseLine não tem hiperparâmetro. Além disso, obtive conhecimento a respeito do algoritmo l-vizinho mais próximo, o qual, cada objeto representa um ponto em um espaço definido pelos atributos, denominado espaço de entrada. Assim, definindo uma métrica nesse espaço, é possível calcular as distâncias entre cada dois pontos via distância euclidiana. Ademais, fiz a leitura e tentei entender algumas partes do Algoritmo k-NN.
+Principal problema do dia: Entender o funcionamento das regressões
+Notas de reunião:  Nosso grupo possui 2 targets, os gols do mandante e os gols do visitante. Achei a ideia de alguns grupos bem interessante de definir metas, e de um específico que definiu datas para terminarem as tarefas. Na próxima semana vai ocorrer o evento do Machine Learning. 
+
+Dia 13/09/2022
+
+Na aula de hoje fizemos e analisamos as propostas em conjunto, foi possível analisar os nossos hiperparâmetros e trabalhar com o grupo sobre as árvores e florestas.  Folhas, profundidade e o número de arvores da Floresta. (O número de árvores não foi muito importante quando analisamos a floresta)
+Folhas e profundidade da árvore de decisões.
+João: Usei os modelos vistos em aula para trabalhar o dataset preparado nas aulas anteriores. Nesse sentido, pude verificar a efetividade da árvore de decisão e da floresta aleatória e foi possível compreender o funcionamento dos métodos graças as explicações dos professores. Por fim, atualizarei o github com os modelos de hoje. 
+Ygor: Revisei o Github e busquei informação dos docentes para que o arquivo fique em formato de python, desse modo, mudando o formato e ficando de forma mais acessível para a visualização durante o desenvolver do bloco. Além disso, ajudei na análise do código e na preparação do que seria feito durante a aula de hoje e nas posteriores.
+Eduarda: Discussão dos resultados obtidos com os códigos que o João tinha feito no jupyter dele, aproveitei a aula para entender mais algumas partes do código, entender qual modelo tinha se encaixado melhor nos nossos dados e comecei a assistir o vídeo recomendado no material: “Regression Trees, Clearly Explained!!!”
+Gabriel: Eu passei todo o código para um arquivo em formato python novo, dividindo-o em células diferentes para que, assim, esse arquivo fosse carregado no nosso repositório. Além disso, eu adicionei, ao código, uma modelagem linear com, no entanto, um hiperparâmetro, o qual considera os k-vizinhos para modificar o modelo.
+Notas de reunião:  Nosso grupo parece adiantado em comparação com os outros, mas é bom entendermos melhor o que fizemos até agora. Daniel aconselhando todos os representantes: “Não economize nos plots, enriquece o trabalho, dá para fazer um plot temporal de ano em ano. E seria bom, para os grupos que já tem tempo disponível, fazer os slides dos trabalhos. É importante lembrar que no final vocês iram apresentar no simpósio”
+
+Dia 20/09/2022
+
+Eduarda: Montagem de design, preparação do slide e da parte que se refere ao bloco 2, visando explicar como começamos o código até chegar no nosso resultado de hoje. Como é uma parte que demanda tempo, não foi possível terminar todo o slide do bloco 2, mas é objetivo já estar pronto na semana que vem. Além disso, parte da aula todo o grupo discutiu e conversou sobre os parâmetros, precisões e resultados que queríamos chegar.
+Gabriel: No dia de hoje, eu trabalhei na formulação de uma análise de dados classificatórios, mais especificamente relativos à vitória, empate ou derrota do time mandante. Obtendo, assim, uma outra análise dos dados que permitem prever, com previsão de 0.505 (até o momento), o resultado do mandante (vitória, empate ou derrota). Além disso, eu interpretei esse resultado associando-o a, por exemplo, apostas esportivas.
+Ygor: Nesse dia fui delegado a montar os slides, desse modo, com o código progredindo bem, apenas observei o desenvolvimento da aula nesse quesito. Por conta da boa progressão, houve a divisão de tarefas, a qual para não ficar muito trabalhoso no fim do semestre, comecei a fazer os slides. Até o momento está concluído o bloco 1 inteiro com sucesso, aguardando apenas a finalização dos demais blocos e uma revisão do mesmo sendo necessária para concluir com êxito os slides.
+João: Ajudei na reformulação do dataset para inserir a coluna ‘resultado_man’ e usei os métodos classificatórios de k-NN, árvore e floresta classificatória para prever se a equipe mandante do grupo de treino teria vitória, empate ou derrota como resultado, sendo que o resultado obtido foi de 0.505 de precisão e o github foi atualizado com esses métodos.
+
+Bloco 3- Relatório
+Grupo: J.V.X.Y
+Dia: 04/10/2022
+
+Ygor: Ajudou no código junto com o Gustavo para assim montar o sistema com (PCA), portanto, analisando os resultados obtidos além disso assistindo os vídeos que foram deixados no material.
+João: Foi responsável para montagem do código, assim compreendendo bem o que foi apresentado e aplicando de forma efetiva na prática, o qual resultou no código disponível no material e no GitHub.
+Eduarda: Assistiu os vídeos e aprendeu conceitos importantes e relevantes, os quais, geraram discussões e questionamentos entre os integrantes do grupo.
+Gabriel: Ausente, pois, estava passando mal, mas foi substituído por outro Montes Clarense, intitulado como Gustavo Matos.
