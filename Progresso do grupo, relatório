@@ -3,7 +3,6 @@ Progresso do grupo, mediante o relatório de cada integrante
 Bloco 2- Relatório
 Grupo: J.V.X.Y
 Dia: 30/08/2022
-
 Eduarda: Como líder, dividi e deleguei as tarefas do grupo, trouxe a lista de tarefa do bloco 2 impressa para fazermos anotações e facilitar a visualização de metas já alcançadas em cada aula. No começo da aula terminei de plotar os gráficos do bloco 1 no README e depois fui analisar os notebooks que foram passados nessa aula, com foco no que falava sobre a parte 2 da lista de tarefas, o de k-vizinhos mais próximos e hiperparâmetros. Além disso, tivemos discussão em grupo para entendermos como faríamos a prática, o que seria o nosso target e analisei os resultados do código com o João.
 Gabriel: Eu especifiquei algumas partes do código apresentado na última aula, tornando mais fácil a compreensão do código no GitHub. Além disso, eu adicionei, ao código, mais três gráficos, os quais contribuem para a análise exploratória dos dados. Sendo eles o número de gols do mandante por faixa de idade média do time titular do mandante, o número de gols do mandante pelo ano da competição. Esses eram os atributos numéricos restantes para a análise exploratória e os gráficos obtidos podem auxiliar na apresentação do projeto e de suas características.
 João: Dividi o dataset em grupos de teste e treino além de realizar a baseline, regressão linear e regressão com normalização com as features e o target escolhido. Vale notar que todas as opções são facilmente alteráveis e não entendi o funcionamento por completo das funções utilizadas paras as regressões.
@@ -12,15 +11,15 @@ Principal problema do dia: Entender o funcionamento das regressões
 Notas de reunião:  Nosso grupo possui 2 targets, os gols do mandante e os gols do visitante. Achei a ideia de alguns grupos bem interessante de definir metas, e de um específico que definiu datas para terminarem as tarefas. Na próxima semana vai ocorrer o evento do Machine Learning. 
 
 Dia 13/09/2022
+Na aula de hoje fizemos e analisamos as propostas em conjunto, foi possível analisar os nossos hiperparâmetros e trabalhar com o grupo sobre as árvores e florestas.
 
-Na aula de hoje fizemos e analisamos as propostas em conjunto, foi possível analisar os nossos hiperparâmetros e trabalhar com o grupo sobre as árvores e florestas.  Folhas, profundidade e o número de arvores da Floresta. (O número de árvores não foi muito importante quando analisamos a floresta)
+ Folhas, profundidade e o número de arvores da Floresta. (O número de árvores não foi muito importante quando analisamos a floresta)
 Folhas e profundidade da árvore de decisões.
 João: Usei os modelos vistos em aula para trabalhar o dataset preparado nas aulas anteriores. Nesse sentido, pude verificar a efetividade da árvore de decisão e da floresta aleatória e foi possível compreender o funcionamento dos métodos graças as explicações dos professores. Por fim, atualizarei o github com os modelos de hoje. 
 Ygor: Revisei o Github e busquei informação dos docentes para que o arquivo fique em formato de python, desse modo, mudando o formato e ficando de forma mais acessível para a visualização durante o desenvolver do bloco. Além disso, ajudei na análise do código e na preparação do que seria feito durante a aula de hoje e nas posteriores.
 Eduarda: Discussão dos resultados obtidos com os códigos que o João tinha feito no jupyter dele, aproveitei a aula para entender mais algumas partes do código, entender qual modelo tinha se encaixado melhor nos nossos dados e comecei a assistir o vídeo recomendado no material: “Regression Trees, Clearly Explained!!!”
 Gabriel: Eu passei todo o código para um arquivo em formato python novo, dividindo-o em células diferentes para que, assim, esse arquivo fosse carregado no nosso repositório. Além disso, eu adicionei, ao código, uma modelagem linear com, no entanto, um hiperparâmetro, o qual considera os k-vizinhos para modificar o modelo.
 Notas de reunião:  Nosso grupo parece adiantado em comparação com os outros, mas é bom entendermos melhor o que fizemos até agora. Daniel aconselhando todos os representantes: “Não economize nos plots, enriquece o trabalho, dá para fazer um plot temporal de ano em ano. E seria bom, para os grupos que já tem tempo disponível, fazer os slides dos trabalhos. É importante lembrar que no final vocês iram apresentar no simpósio”
-
 Dia 20/09/2022
 
 Eduarda: Montagem de design, preparação do slide e da parte que se refere ao bloco 2, visando explicar como começamos o código até chegar no nosso resultado de hoje. Como é uma parte que demanda tempo, não foi possível terminar todo o slide do bloco 2, mas é objetivo já estar pronto na semana que vem. Além disso, parte da aula todo o grupo discutiu e conversou sobre os parâmetros, precisões e resultados que queríamos chegar.
@@ -36,3 +35,20 @@ Ygor: Ajudou no código junto com o Gustavo para assim montar o sistema com (PCA
 João: Foi responsável para montagem do código, assim compreendendo bem o que foi apresentado e aplicando de forma efetiva na prática, o qual resultou no código disponível no material e no GitHub.
 Eduarda: Assistiu os vídeos e aprendeu conceitos importantes e relevantes, os quais, geraram discussões e questionamentos entre os integrantes do grupo.
 Gabriel: Ausente, pois, estava passando mal, mas foi substituído por outro Montes Clarense, intitulado como Gustavo Matos.
+
+Dia 18/10/2022
+
+Eduarda: Estudo dos novos termos apresentados em sala, leitura do material e complementar assistindo a vídeos no Youtube sobre o assunto, principalmente os do StartQuest
+Ygor: Assisti aos vídeos do StartQuest, tanto os dessa aula como da anterior, assim compreendendo melhor o assunto, ajudei João a revisar o código, portanto, testando diferentes hiperparâmetros para ver se alguma mudança acrescentaria pontos positivos.
+João: Tentei mudar a eficiência da classificação com floresta aleatória usando diferentes hiperparâmetros, revisei a seção em que fizemos o PCA e ajudei a aplicar o K-Means no dataset e no PCA.
+Gabriel: Estudei os métodos de PCA e de K-Means pelos vídeos do StartQuest e entendi as alterações feitas no código na aula anterior.
+
+Dia 25/10/2022
+
+Eduarda: Discussão dos nossos dados, montagem e organização dos slides do bloco 1.
+Ygor: Deleguei as tarefes para cada integrante, assisti ao vídeo fornecido pelo material, além de ter ajudado na análise e na implementação de outliers pelos métodos de (LOF e Isolation Forest), ademais, analisei os resultados e os gráficos buscando dessa maneira as suas interpretações.
+João: Ajudei a implementar a análise de outliers pelos dois métodos vistos em sala de aula (LOF e Isolation Forest). Também ajudei na interpretação dos gráficos.
+Gabriel: Ajudei na implementação e análise de outliers pelos métodos de (LOF e Isolation Forest), além disso, nomeei os títulos dos gráficos obtidos e analisei as suas interpretações.
+
+A visualização gráfica dos dados é difícil devido a quantidade de features que gera uma grande quantidade de dimensões. EX: uma nuvem bem localizada com outlier diretamente acima no eixo z, quando é analisado levando em conta o plano x e y, aparenta que o ponto vermelho está acima do azul, mas avaliando por outros eixos, esse outlier está entre os pontos e não acima como anteriormente apresentado.
+
