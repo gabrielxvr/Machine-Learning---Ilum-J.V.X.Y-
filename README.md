@@ -26,19 +26,32 @@ O tratamento de dados foi realizado usando o Python, por meio do JupyterLab, esp
 ### Alguns resultados obtidos de forma exploratória
 Em um primeiro momento, é interessante analisar algumas relações de dependência envolvendo as partidas de futebol. Para isso, faremos uso de gráficos, relacionando algum atributo desejado à média de gols.
 
-<img src= "Gols e Público Médio.png" style="width:320px;height:200px;">
+<img src= "https://user-images.githubusercontent.com/107067724/203429334-adbf659a-ad6c-45b3-ab0f-b4dd77ea9a07.png" style="width:320px;height:200px;">
+
 Podemos perceber, a partir do gráfico acima que, estatisticamente, o número de torcedores presentes no estádio não influencia de maneira significativa a quantidade de gols do mandante.
-<img src= "Gols e Valor do Elenco.png" style="width:320px;height:200px;">
+
+<img src= "https://user-images.githubusercontent.com/107067724/203430340-b26adddf-3cd8-4763-beec-105f07197e4d.png" style="width:320px;height:200px;">
+
 De maneira diferente ao que foi apresentado no primeiro gráfico, no gráfico acima, podemos perceber que o valor do elenco titular mandante influencia positivamente a quantidade de gols marcados pelo mandante.
-<img src= "Gols e Colocação do Mandante.png" style="width:320px;height:200px;">
+
+<img src= "https://user-images.githubusercontent.com/107067724/203430848-3a2a9f44-90d8-4f1a-8381-19f4e0857223.png" style="width:320px;height:200px;">
+
 Quando nos referimos à colocação do time mandante, essa informação também se mostra importante para a predição do número de gols do time mandante.
-<img src= "Gols do Visitante e Valor do Elenco Mandante.png" style="width:320px;height:200px;">
+
+<img src= "https://user-images.githubusercontent.com/107067724/203431038-3a4a5447-95e2-4f68-adbb-9f6647c86789.png" style="width:320px;height:200px;">
+
 De forma complementar ao segundo gráfico, o valor da equipe titular mandante influencia negativamente a média de gols marcados pela equipe visitante.
-<img src= "Gols do Visitante e Colocação do Mandante.png" style="width:320px;height:200px;">
+
+<img src= "https://user-images.githubusercontent.com/107067724/203429941-868b1c97-4560-4ee2-ad5e-4c15368b5830.png" style="width:320px;height:200px;">
+
 De forma semelhante ao obtido anteriormente, a colocação do time mandante parece influenciar no número de gols marcados, em média, pelo time visitante.
-<img src= "Frequência de Valor da Equipe Mandante.png" style="width:320px;height:200px;">
-<img src= "Frequência de Público.png" style="width:320px;height:200px;">
-<img src= "Frequência da Colocação.png" style="width:320px;height:200px;">
+
+<img src= "https://user-images.githubusercontent.com/107067724/203431171-6b5642a8-978b-431b-8a43-0fc232ce8031.png" style="width:320px;height:200px;">
+
+<img src= "https://user-images.githubusercontent.com/107067724/203431289-8126d2f1-c304-4036-95bb-626d87313272.png" style="width:320px;height:200px;">
+
+<img src= "https://user-images.githubusercontent.com/107067724/203431378-75cace32-ab85-43b3-831c-e069d6a19c92.png" style="width:320px;height:200px;">
+
 As frequências de cada atributo analisado pela faixa desses atributos nos permitem compreender algumas dispersões nos gráficos anteriores. Por exemplo, a quantidade de dados contendo uma quantidade de torcedores no estádio maior que 60 mil é muito pequena, isso permite compreender a grande dispersão do primeiro gráfico quando a quantidade de torcedores é maior que 60 mil.
 
 ## Modelagem
@@ -62,7 +75,7 @@ A árvore de decisões é um método de previsão que permite constituir uma sé
 ## Árvore de Decisões com Hiperparâmetros
 Alguns hiperparâmetros, como a quantidade de folhas, podem ser adicionados ao modelo de árvore de decisões com o objetivo de diminuir o erro médio. Objetivo esse bem sucedido, pois, ao definirmos o número de folhas como 6 e o número de profundidade como 3 nós obtivemos o erro médio de 1.121 gols.
 
-<img src= "árvorefut.png" style="width:600px;height:400px;">
+<img src= "https://user-images.githubusercontent.com/107067724/203431565-272b9381-4cfa-4429-9453-d2aad05ce42e.png" style="width:600px;height:400px;">
 
 ## Floresta Aleatória
 Na verdade é a ideia de floresta aleatória é bem parecidada com a de árvore de decisões, mas ampliada. Nesse caso, o erro médio obtido foi de  1.1285 gols. No entanto, após a inserção de alguns hiperparâmtros, o erro médio passou para 1.11 gols.
