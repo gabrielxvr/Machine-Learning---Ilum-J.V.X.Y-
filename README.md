@@ -14,6 +14,12 @@ Esse é um repositório relativo ao desenvolvimento do projeto realizado pelo gr
 ### Como fazer a melhor simulação?
 Para realizar simulações a respeito dos jogos foram usados alguns atributos, disponíveis nos bancos de dados do brasileirão. Informações como a colocação de cada time no campeonato ou o número de torcedores presentes no estádio podem ser indicativos de um resultado positivo ou negativo. Selecionar dados significativos é muito importante e fez parte do pre-tratamento realizado.
 
+### Dados trabalhados
+De maneira geral, nós utilizamos uma tabela de dados relativos a jogos da série A do Brasileirão, entre os anos de 2003 e 2020.
+
+<img src= "https://user-images.githubusercontent.com/107067724/203422699-021d084f-7534-4f51-bf45-bb4ef222a22e.png" style="width:640px;height:400px;">
+
+
 ### Tratamento de dados
 O tratamento de dados foi realizado usando o Python, por meio do JupyterLab, especialmente utilizando a biblioteca scikit-learn. Além disso, foram usadas algumas bibliotecas, como o pandas, o matplotlib e o seaborn. O código feito está disponível nesse repositório no documento "Código Utilizado.pynb". Para utilizá-los é necessário fazer o download da tabela "dados brasileirao.xlsx".
 
