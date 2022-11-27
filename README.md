@@ -90,10 +90,58 @@ O método de classificação é uma forma de previsão baseada no agrupamento de
 A ideia de k-vizinhos, quando utilizada na classificação ocorre de maneira parecida. Sendo que, nesse caso, os vizinhos interfeririam no agrupamento realizado.
 
 ## Arvore de Decisões com Hiperparâmetros
-A arvore de decisões também possui a mesma dinâmica de perguntas e argumentos lógicos para determinar a previsão, sendo que, somado aos hiperparâmetros determinados, foi possível obter, finalmente, um accuracy de mais de 50%.
+A arvore de decisões também possui a mesma dinâmica de perguntas e argumentos lógicos para determinar a previsão, sendo que, somado aos hiperparâmetros determinados, foi possível obter, finalmente, um accuracy de pouco mais de 50%.
 
 ## Algumas conclusões
-A partir dos resultados obtidos, mencionados anteriormente, foi possível obter, no modo de classificação, um accuracy, ou precisão, de mais de 50%. Isso significa que, em média, a cada dois jogos, o modelo é capaz de responder corretamente um dos resultados, sendo que as opções possíveis são vitória, derrota ou empate do mandante. Isso faz com que o modelo possua a capacidade de prever relativamente bem alguns resultados, especialmente quando pensamos em um número grande de jogos. Portanto, podemos fazer a seguinte constatação lógica: Se em um site de apostas on-line o resultado obtido pelo modelo estiver correspondendo a um multiplicador maior que 2, ou seja, a cada 1 real investido o valor de retorno caso se acerte o resultado é maior que 2 reais (algo bastante comum), então, torna-se vantajoso investir nessa partida, pois, como constatado, a chance de acerto do código é mais de 50%, isso faz com que, se pensarmos em centenas ou milhares de apostas em que o resultado apontado pelo modelo possui um multiplicador maior que 2 é, estatisticamente, bem provável o lucro.
+A partir dos resultados obtidos, mencionados anteriormente, foi possível obter, no modo de classificação, um accuracy, ou precisão, de mais de pouco mais de 50%. Isso significa que, em média, a cada dois jogos, o modelo é capaz de responder corretamente um dos resultados, sendo que as opções possíveis são vitória, derrota ou empate do mandante. Isso faz com que o modelo possua a capacidade de prever relativamente bem alguns resultados, especialmente quando pensamos em um número grande de jogos. Portanto, podemos fazer a seguinte constatação lógica: Se em um site de apostas on-line o resultado obtido pelo modelo estiver correspondendo a um multiplicador maior que 2, ou seja, a cada 1 real investido o valor de retorno caso se acerte o resultado é maior que 2 reais (algo bastante comum), então, torna-se vantajoso investir nessa partida, pois, como constatado, a chance de acerto do código é mais de 50%, isso faz com que, se pensarmos em centenas ou milhares de apostas em que o resultado apontado pelo modelo possui um multiplicador maior que 2 é, estatisticamente, bem provável o lucro.
+
+## Conclusões precipitadas...
+
+"o mundo é um moinho" - Cartola
+
+Sim! O mundo é um moinho que triturou nossos sonhos mesquinhos de ganhar dinheiro com apostas esportivas. Depois de analisar os resultados que o nosso código havia apresentado, nós notamos um comportamento estranho, o nosso modelo sim acertava o resultado de 50% dos jogos, MAS, ele acertava pois previa a vitória para o mandante em TODAS as vezes. Nesse momento, nós descobrimos que existe uma "lei empírica do futebol", que vai ser referida aqui como "distribuição real", em que o time mandante ganha em 50%, empata em 25% e perde em 25% das ocasiões, ou seja, até mesmo alguém que nunca assistiu futebol antes na vida, se soubesse dessa tendência, conseguiria acertar o resultado de 50% dos jogos simplesmente apostando no mandante. Podemos chamar esse fenômeno, então, de "A barreira dos 50%"! Nesse momento, nosso baseline deixa de ser o DummyRegressor ou a ilusão de que haveria 33,333...% de chance em adivinhar aleatoriamente o resultado e passa a ser o "novo óbvio": A barreira dos 50%!
+
+Até então, todos os nossos resultados tidos como "bons" estavam, na verdade, convergindo para a barreira dos 50%, o modelo da árvore de decisões havia sido o único a ter uma distribuição real e uma precisão de 42%, o que ainda estava abaixo do esperado. Seria esse o fim do nosso sonho? Estaríamos nós esse tempo todo em busca do inexistente pote de ouro ao fim do arco-íris?
+
+## Uma luz no fim do tunel
+
+"Não me diga que a canção está perdida" - Raul Seixas
+
+Havia uma luz no fim do tunel! Após refletir sobre o nosso problema, chegamos a uma conclusão também óbvia. O nosso código, assim como uma pessoa que nunca assistiu a uma partida de futebol, poderia acertar 50% dos jogos, tudo bem! Mas para qualquer um desses passar a acertar mais que 50% dos resultados, seria necessário ir além do óbvio, pois prever a vitória do mandante sempre estaria condenado a nunca passar da barreira dos 50%. Ou seja, um modelo mais robusto, para acertar mais que 50% passaria, necessariamente, a prever derrotas e empates do mandante. Dessa forma, a nossa missão deixa de ser manter de qualquer forma uma distribuição real para ampliar nosso modelo de forma que necessariamente ele atinja a distribuição real, passando, dessa forma, também, da barreira dos 50%.
+
+A nossa primeira abordagem, então, foi mudar absurdamente alguns hiperparâmetros do nosso "melhor" modelo até então, a floresta aleatória. No entanto, nós percebemos que essa mudança não foi efetiva, o que acontecia é que, ao aumentar os hiperparâmetros, tanto a precisão quanto a distribuição dos resultados se aproxima muito do modelo sem a modificação dos hiperparâmetros, até o ponto em que nós não tínhamos mais capacidade de processamento para aumentar os hiperparâmetros. Como já era esperado, essa não foi uma abordagem muito inteligente! :(
+
+Nós precisaríamos, agora, partir para outra forma de resolver o nosso problema. Então, resolvemos dar vários passos para trás e voltar ao nosso dataset original. Nesse momento, nós tínhamos 7030 jogos, 37 features, algumas fristrações no caminho e uma missão a ser cumprida.
+
+## Uma possível solução
+
+Vale retornar ao início da nossa primeira abordagem em que nós definimos, arbitrariamente, que todos os dados que aconteceram durante o jogo, como chutes a gol, escanteios, etc, seriam considerados como lixo e excluídos do nosso dataframe. O que nós não levamos em conta é que esses dados eram, na verdade, muito valiosos para a nossa análise. Seria essa nova abordagem a solução para os nossos problemas?
+
+"Quem não arrisca, não petisca" - Ditado popular
+
+Essa resposta só seria respondida se tentássemos. Portanto, foi traçada a seguinte estratégia: Dados como chutes ao gol realizados na partida não podem ser utilizados para prever uma partida que nem começou, porém eles dizem muito a respeito do time que está jogando, como, por exemplo, se esse time é mais ofensivo ou defensivo, entre outras características. Dessa forma, precisariamos de utilizar esses dados de maneira em que seria possível obtê-los antes do início da partida, mas como?
+
+## Aplicação da nova abordagem
+
+A nossa abordagem, então, foi não mais trabalhar com os dados de chutes a gol ou escanteios, e sim trabalhar com tendências. Ou seja, baseado nos últimos jogos de cada time, nós encontraríamos qual é a tendência de gols, chutes a gol, faltas ou defesas de cada, dessa forma, seria possível estimar esses valores anteriormente ao início da partida. Mas como implementar isso na prática?
+
+A solução foi, a partir do dataframe inicial, retirar todas as linhas que possuíssem dados faltantes. Nossa ideia era não mais trabalhar com várias linhas, mas sim com várias Features. Após isso, foi definida uma função de tendência, que, a partir dos últimos quatro valores, encontra uma tendência, de maneira que os valores mais recentes contribuem mais para essa tendência. Em seguida, nós criamos uma função, em cada linha, irá identificar os times mandante e visistante, encontrar os dados a respeito de seus últimos quatro jogos, calcular a tendência de cada um deles e adicioná-la à coluna "tendência de ..." criada anterioemente. Dessa forma, adicionamos diversas novas Features ao nosso dataframe e poderíamos, em seguida, excluir as Features que não seriam possíveis de determinar sem, no entanto, perder a informação contida nelas. Dessa forma, nós tínhamos em mãos um dataframe contendo 666 linhas e 25 Features. Ou seja, perdemos um número considerável de linhas, mas ganhamos quase o quadruplo de Features. Seria possível, então, começar a testar alguns modelos mais simples.
+
+## Divisão do Database em Treino e Teste
+
+A divisão entre treino e teste ocorreu de maneira bem parecida com o que foi realizado na primeira abordagem, separando 10% dos dados para teste e 90% para treino.
+
+## Modelo Baseline
+
+"Valeu a pena, ê ê" - O Rappa
+
+O Modelo Baseline para prever o número de gols do mandante teve, a partir da inserção dessas novas Features, um RMSE de 1.021 gols, ou seja, para a previsão do número de gols do mandante, o DummyRegressor apresentou um RMSE menor que todos os outros modelos testados na primeira abordagem! Esse resultado é incrível!
+
+## Regressão Linear
+
+A regressão linear também seguiu a mesma tendência do DummyRegressor, possuindo um RMSE de, também, 1.021 gols, porém, sendo um pouco menor que o modelo baseline, porém, esses poderiam ser considerados estatisticamente iguais.
+
+
 
 ## Agradecimentos Especiais
 
