@@ -141,7 +141,13 @@ O Modelo Baseline para prever o número de gols do mandante teve, a partir da in
 
 A regressão linear também seguiu a mesma tendência do DummyRegressor, possuindo um RMSE de, também, 1.021 gols, porém, sendo um pouco menor que o modelo baseline, porém, esses poderiam ser considerados estatisticamente iguais.
 
+## Validação Cruzada
 
+Nessa etapa do trabalho, parte do bloco 4, organizamos e reformulamos o dataset como dito anteriormente e fizemos vários modelos de validação cruzada. Antes disso, é importante ressaltar que fizemos uma comparação inicial de como o segundo dataset melhorou o modelo em comparação ao primeiro, vimos uma melhora e resolvemos utilizar o segundo dataset para a validação cruzada. Testamos 13 modelos para a Validação Cruzada, apesar de resultados não tão satisfatórios para a área do futebol, visto que, não conseguimos ultrapassar a barreira do 50%.
+
+## Considerações finais
+
+ Portanto, apesar de conseguirmos uma melhora na regressão, não foi o suficiente para ultrapassar a barreira dos 50% e, assim, como resposta a pergunta do Bloco 4, nós não utilizaríamos o nosso modelo para realizar previsões nessa área nesse momento, no entanto, acreditamos que seria possível utilizá-lo com alguns ajustes e um conjunto maior de dados.
 
 ## Agradecimentos Especiais
 
